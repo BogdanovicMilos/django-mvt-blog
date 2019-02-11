@@ -10,7 +10,12 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Login</button>
+                <small class="text-muted ml-2">
+                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                </small>
             </div>
+            <a class="btn btn-social-icon btn-google mb-3" href="{% url 'social:begin' 'google-oauth2' %}"><span class="fa fa-google"></span></a>
+            <a class="btn btn-social-icon btn-github mb-3" href=""><span class="fa fa-github"></span></a>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">

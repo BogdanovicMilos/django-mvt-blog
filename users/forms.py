@@ -24,3 +24,9 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+class ContactForm(forms.Form):
+    email = forms.EmailField(required=True)
+    subject = forms.CharField(max_length=100, help_text='100 characters max.', required=True)
+    message = forms.CharField(max_length=225, required=True)

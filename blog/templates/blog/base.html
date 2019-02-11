@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/bootstrap-social.css' %}">
 
     {% if title %}
         <title>Django Blog - {{ title }}</title>
@@ -29,6 +31,7 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
               <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
             </div>
             <!-- Navbar Right Side -->
@@ -39,7 +42,7 @@
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
               {% else %}              
                 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}">SignUp</a>
               {% endif %}
             </div>
           </div>
@@ -48,6 +51,11 @@
     </header>
     <main role="main" class="container">
       <div class="row">
+        <div class="col">
+          <form class="input-group mb-3" method="GET" action="{% url 'search-posts' %}" id="searchform">
+            <input class="form-control ds-input" id="searchbox" type="text" name="q" placeholder="Search..." aria-label="Search" value="{{ request.GET.q }}">
+          </form>
+        </div>
         <div class="col-md-8">
           {% if messages %}
             {% for message in messages %}

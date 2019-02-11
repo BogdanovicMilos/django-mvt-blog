@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+	<h4 class="page-title mt-3">Ask a Question</h4>
+	<hr class="sm">
+	<p>
+		Have a question about Django, Web development or anything related to tech? Go ahead and ask it!
+	</p>
+	<p>The best questions will be featured in future posts in a Q&amp;A format.</p>
+	<hr>
+	<form method="POST">
+		{% csrf_token %}		
+		<div class="form-group"> <!-- Email field -->
+			<label class="control-label requiredField" for="email">Email<span class="asteriskField">*</span></label>
+			<input class="form-control" id="email" name="email" type="text"/>
+		</div>		
+		<div class="form-group"> <!-- Subject field -->
+			<label class="control-label " for="subject">Subject</label>
+			<input class="form-control" id="subject" name="subject" type="text"/>
+		</div>
+		
+		<div class="form-group"> <!-- Message field -->
+			<label class="control-label " for="message">Your Question</label>
+			<textarea class="form-control" cols="40" id="message" name="message" rows="10"></textarea>
+		</div>			
+		<label>
+		    <input type="checkbox" name="subscribe" id="id_subscribe">
+		    <span class="label-body">I would like to receive updates from the blog</span>
+	  	</label>
+	  	<div class="form-group">
+			<button class="btn btn-primary " name="submit" type="submit">Submit</button>
+		</div>
+	</form>
+{% endblock content %}

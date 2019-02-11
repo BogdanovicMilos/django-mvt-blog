@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.mail import BadHeaderError, send_mail
+from django.conf import settings
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, ContactForm
 
 
 def register(request):
@@ -40,3 +43,19 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            sender_email = form.cleaned_data.get('email')
+            recevier_email = settings.EMAIL_HOST_USER
+            subject = form.cleaned_data.get('subject')
+            message = form.cleaned_data.get('message')
+            try:
+                send_mail(subject, message, sender_email, [recevier_email], fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return render(request, 'users/contact_complete.html')
+    return render(request, 'users/contact.html')
