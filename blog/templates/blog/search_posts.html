@@ -1,12 +1,12 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-	<div class='row title-row my-3'>
-    	<div class='col-12 py-0'>
-        	<h6 class='my-0 py-0'>{{ count }} results for <b>{{ query }}</b></h6>
+	<div class='row title-row mt-1'>
+    	<div class='col-12'>
+        	<h7 class='my-0 py-0'>{{ count }} results for <b>{{ query }}</b></h7>
     	</div>
 	</div>
 	{% for post in posts %}
-		<article class="media content-section">
+		<article class="media content-section my-1">
 		<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
 		  <div class="media-body">
 		    <div class="article-metadata">
