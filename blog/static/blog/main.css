@@ -34,7 +34,7 @@ ul {
     transition: all 0.5s;
     z-index: 997;
     background-color: #fff;
-    box-shadow: 5px 0px 15px #c3c3c3;
+    box-shadow: 5px 0px 15px #18d26e;
 }
 
 #header #logo h1 {
@@ -50,7 +50,7 @@ ul {
 #header #logo h1 a, #header #logo h1 a:hover {
     color: #000;
     padding-left: 10px;
-    border-left: 4px solid grey;
+    border-left: 4px solid #18d26e;
 }
 
 #nav-menu-container {
@@ -123,6 +123,12 @@ ul {
     white-space: nowrap;
 }
 
+.divider-vertical {
+  height: 27px;
+  margin: 0 8px;
+  border-left: 2px solid #18d26e;
+}
+
 .content-section {
   background: #ffffff;
   padding: 10px 20px;
@@ -137,7 +143,7 @@ ul {
 }
 
 a.article-title:hover {
-  color: #428bca;
+  color: #18d26e;
   text-decoration: none;
 }
 

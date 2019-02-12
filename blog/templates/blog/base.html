@@ -30,6 +30,7 @@
               <li class="menu-active"><a href="{% url 'blog-home' %}">Home</a></li>
               <li><a href="{% url 'blog-about' %}">About Us</a></li>
               <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li class="divider-vertical"></li>
               {% if user.is_authenticated %}
                 <li><a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a></li>
                 <li><a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a></li>
